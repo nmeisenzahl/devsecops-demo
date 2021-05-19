@@ -7,8 +7,9 @@ WORKDIR /app
 
 ENV CGO_ENABLED=0
 ADD src/ .
-RUN apk --update add redis \
-  && go build -o sample-app
+RUN go build -o sample-app
+
+ENV DB_STRING="secret-string"
 
 EXPOSE 3000
 
